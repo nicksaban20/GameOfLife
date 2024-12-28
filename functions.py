@@ -1,4 +1,5 @@
 import random
+import pygame
 
 board_state =  [[0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0],
@@ -108,3 +109,14 @@ def load_board_state(filename):
                 else:
                     board_state[line][column] = 0
     return board_state
+
+
+def pygame_render(board, size=10):
+    screen = pygame.display.set_mode((len(board[0]) * size, len(board) * size))
+    for row in range(len(board)):
+        for column in range(len(board[0])):
+            if board[row][column] == 1:
+                pygame.draw.rect(screen, (255, 255, 255), (column * size, row * size, size, size))
+            else:
+                pygame.draw.rect(screen, (0, 0, 0), (column * size, row * size, size, size))
+    pygame.display.flip()

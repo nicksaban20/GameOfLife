@@ -1,5 +1,5 @@
-from main import next_board_state
-from main import render
+from Python.GameOfLife.functions import next_board_state
+from Python.GameOfLife.functions import render
 
 # TODO: there's a lot of repeated code here. Can
 # you move some of into reusable functions to
